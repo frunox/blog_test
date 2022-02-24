@@ -5,6 +5,7 @@ defmodule BlogTest.Users.User do
 
   schema "users" do
     pow_user_fields()
+    field :user_name, :string
 
     timestamps()
   end
@@ -13,5 +14,6 @@ defmodule BlogTest.Users.User do
     user_or_changeset
     |> pow_changeset(attrs)
     |> pow_extension_changeset(attrs)
+    |> IO.inspect
   end
 end

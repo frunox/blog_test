@@ -46,6 +46,7 @@ select {
   min-width: 300px;
   margin: 1rem;
   display: block;
+  font-size: x-large;
 }
 .phx-logo img {
   width: auto;
