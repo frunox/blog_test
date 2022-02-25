@@ -55,6 +55,15 @@ config :blog_test, :pow,
     controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
   mailer_backend: BlogTestWeb.PowMailer
 
+config :blog_test, :pow_assent,
+    providers: [
+        github: [
+    client_id: "a49215643510af4c3f9e",
+    client_secret: "99c00cbed7e49a06e207265d8560925da8b4aa3f",
+    strategy: Assent.Strategy.Github
+  ]
+]	
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
