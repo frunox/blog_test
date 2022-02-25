@@ -4,12 +4,12 @@ defmodule BlogTest.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :email, :string, null: false
-      add :username, :string, null: false
+      add :username, :string, default: "Anonymous"
       add :password_hash, :string, redact: true
 
       timestamps()
     end
 
-    create unique_index(:users, [:email, :username])
+    create unique_index(:users, [:email])
   end
 end

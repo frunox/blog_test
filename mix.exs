@@ -53,7 +53,7 @@ defmodule BlogTest.MixProject do
       {:makeup_elixir, "~> 0.15.2"},
       {:makeup_erlang, "~> 0.1.1"},
       {:pow, "~> 1.0"},
-      {:pow_assent, "~> 0.4.12"}
+      {:pow_assent, "~> 0.4"}
     ]
   end
 
