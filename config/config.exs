@@ -50,7 +50,10 @@ config :phoenix, :json_library, Jason
 config :blog_test, :pow,
   user: BlogTest.Users.User,
   repo: BlogTest.Repo,
-  web_module: BlogTestWeb
+  web_module: BlogTestWeb,
+  extensions: [PowResetPassword],
+    controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
+  mailer_backend: BlogTestWeb.PowMailer
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -93,6 +93,16 @@ defmodule BlogTestWeb do
     end
   end
 
+  # mailer function for password reset
+  def mailer_view do
+    quote do
+      use Phoenix.View, root: "lib/blog_test_web/templates",
+                        namespace: BlogTestWeb
+
+      use Phoenix.HTML
+    end
+  end
+
   @doc """
   When used, dispatch to the appropriate controller/view/etc.
   """
