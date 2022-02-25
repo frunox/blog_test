@@ -4,14 +4,15 @@ defmodule BlogTest.Users.User do
   use Pow.Extension.Ecto.Schema
 
   schema "users" do
+    field :username, :string
     pow_user_fields()
-    field :user_name, :string
 
     timestamps()
   end
   
   def changeset(user_or_changeset, attrs) do
     user_or_changeset
+    |> Ecto.Changeset.cast(attrs, [:username])
     |> pow_changeset(attrs)
     |> pow_extension_changeset(attrs)
     |> IO.inspect
