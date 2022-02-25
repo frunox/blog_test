@@ -15,16 +15,26 @@ defmodule BlogTestWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
   scope "/" do
     pipe_through :browser
 
     pow_routes()
   end
 
-   scope "/", BlogTestWeb do
+  scope "/", BlogTestWeb do
     pipe_through :browser
 
     get "/", BlogController, :index
+  end
+
+  scope "/", BlogTestWeb do
+    pipe_through [:browser, :protected]
+
     get "/:id", BlogController, :show
   end
 
