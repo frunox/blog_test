@@ -54,7 +54,8 @@ config :blog_test, :pow,
   extensions: [PowResetPassword],
   controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
   mailer_backend: BlogTestWeb.PowMailer,
-  messages_backend: BlogTestWeb.Pow.Messages
+  messages_backend: BlogTestWeb.Pow.Messages,
+  routes_backend: BlogTestWeb.Pow.Routes
 
 config :blog_test, :pow_assent,
   providers: [
