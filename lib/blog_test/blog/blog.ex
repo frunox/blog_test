@@ -10,9 +10,7 @@ defmodule BlogTest.Blog do
   # The @posts variable is first defined by NimblePublisher.
   # Let's further modify it by sorting all posts by descending date.
   @posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
-  # IO.puts("*** @posts")
-  # IO.inspect(@posts)
-
+  Enum.map(@posts, fn post -> IO.inspect(post.id, label: "post.id") end)
   # Let's also get all tags
   @tags @posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
   # IO.puts("*** @tags")
