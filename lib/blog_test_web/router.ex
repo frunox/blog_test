@@ -2,6 +2,7 @@ defmodule BlogTestWeb.Router do
   use BlogTestWeb, :router
   use Pow.Phoenix.Router
   use PowAssent.Phoenix.Router
+
   use Pow.Extension.Phoenix.Router,
     extensions: [PowResetPassword]
 
@@ -18,16 +19,17 @@ defmodule BlogTestWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :protected do
-    plug Pow.Plug.RequireAuthenticated,
-      error_handler: Pow.Phoenix.PlugErrorHandler
-  end
+  # pipeline :protected do
+  #   plug Pow.Plug.RequireAuthenticated,
+  #     error_handler: Pow.Phoenix.PlugErrorHandler
+  # end
 
   # for pow_assent
   pipeline :skip_csrf_protection do
     plug :accepts, ["html"]
     plug :fetch_session
-    plug :fetch_flash
+    plug :fetch_live_flash
+    plug :put_root_layout, {BlogTestWeb.LayoutView, :root}
     plug :put_secure_browser_headers
   end
 
@@ -50,13 +52,14 @@ defmodule BlogTestWeb.Router do
     pipe_through :browser
 
     get "/", BlogController, :index
-  end
-
-  scope "/", BlogTestWeb do
-    pipe_through [:browser, :protected]
-
     get "/:id", BlogController, :show
   end
+
+  # scope "/", BlogTestWeb do
+  #   pipe_through [:browser, :protected]
+
+  #   get "/:id", BlogController, :show
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", BlogTestWeb do
