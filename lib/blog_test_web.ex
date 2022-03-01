@@ -2,16 +2,16 @@ defmodule BlogTestWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
-
+  
   This can be used in your application as:
-
+  
       use BlogTestWeb, :controller
       use BlogTestWeb, :view
-
+  
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
   on imports, uses and aliases.
-
+  
   Do NOT define functions inside the quoted expressions
   below. Instead, define any helper function in modules
   and import those modules here.
@@ -96,8 +96,9 @@ defmodule BlogTestWeb do
   # mailer function for password reset
   def mailer_view do
     quote do
-      use Phoenix.View, root: "lib/blog_test_web/templates",
-                        namespace: BlogTestWeb
+      use Phoenix.View,
+        root: "lib/blog_test_web/templates",
+        namespace: BlogTestWeb
 
       use Phoenix.HTML
     end

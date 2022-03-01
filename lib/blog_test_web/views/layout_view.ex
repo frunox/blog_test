@@ -6,6 +6,6 @@ defmodule BlogTestWeb.LayoutView do
   @compile {:no_warn_undefined, {Routes, :live_dashboard_path, 2}}
 
   def template_not_found(template, _assigns) do
-      Phoenix.Controller.status_message_from_template(template)
+    Phoenix.Controller.status_message_from_template(template)
   end
 end

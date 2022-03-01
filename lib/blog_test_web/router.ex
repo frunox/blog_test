@@ -2,6 +2,7 @@ defmodule BlogTestWeb.Router do
   use BlogTestWeb, :router
   use Pow.Phoenix.Router
   use PowAssent.Phoenix.Router
+
   use Pow.Extension.Phoenix.Router,
     extensions: [PowResetPassword]
 
